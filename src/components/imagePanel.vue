@@ -9,7 +9,7 @@
       <div class="name">暴走的短腿猫</div>
     </div>
     <div class="content">他们说，猫是不恋家的，最后会决绝离开。</div>
-    <div class="info">
+    <div class="footer">
       <span class="date">今天</span>
       <p class="count">
         <span class="icon icon-collection"><i class="num"></i></span>
