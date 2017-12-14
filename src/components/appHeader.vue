@@ -1,5 +1,5 @@
 <template>
-  <div class="app-head">
+  <div class="app-header">
     <div class="app-left">
       <slot name="left">左</slot>
     </div>
@@ -14,12 +14,12 @@
 
 <script>
 export default {
-  name: 'app-head'
+  name: 'app-header'
 }
 </script>
 
 <style lang="scss">
-.app-head {
+.app-header {
   position: fixed;
   left: 0;
   top: 0;
