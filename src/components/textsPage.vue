@@ -24,6 +24,7 @@
     <div class="comments-list">
       <h2 class="title">评论</h2>
     </div>
+    <div class="footer"></div>
   </div>
 </template>
 
