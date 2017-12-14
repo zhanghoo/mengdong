@@ -2,6 +2,7 @@
 	<div class="register">
     <div class="bg"></div>
     <div class="wrap">
+      <span class="icon icon-return"></span>
       <div class="input-block">
         <span class="icon icon-phone"></span>
         <input type="text" placeholder="请输入手机号">
