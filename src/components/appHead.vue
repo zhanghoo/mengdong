@@ -1,15 +1,15 @@
 <template>
-  <div class="head"></div>
+  <div class="app-head"></div>
 </template>
 
 <script>
 export default {
-	name: 'head'
+	name: 'app-head'
 }
 </script>
 
 <style lang="scss">
-.head {
+.app-head {
    
 }	
 </style>
