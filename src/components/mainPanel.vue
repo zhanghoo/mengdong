@@ -22,30 +22,30 @@
     </div>
     <div class="content">
       <div class="tab-item">
-        <article-panel v-for="article in articles" :key="article.id" :article="article"></article-panel>
+        <main-article-panel v-for="article in articles" :key="article.id" :article="article"></main-article-panel>
       </div>
       <div class="tab-item">
-        <image-panel v-for="image in images" :key="image.id" :image="image"></image-panel>
+        <main-image-panel v-for="image in images" :key="image.id" :image="image"></main-image-panel>
       </div>
       <div class="tab-item">
-        <video-panel v-for="video in videos" :key="video.id" :video="video"></video-panel>
+        <main-video-panel v-for="video in videos" :key="video.id" :video="video"></main-video-panel>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import articlePanel from '@/component/articlePanel'
-import imagePanel from '@/component/imagePanel'
-import videoPanel from '@/component/videoPanel'
+import mainArticlePanel from '@/component/mainArticlePanel'
+import mainImagePanel from '@/component/mainImagePanel'
+import mainVideoPanel from '@/component/mainVideoPanel'
 
 export default {
 	name: 'main-panel',
   components: {
     appHeader,
-    articlePanel,
-    imagePanel,
-    videoPanel
+    mainArticlePanel,
+    mainImagePanel,
+    mainVideoPanel
   },
   props: {
     appList: Object
