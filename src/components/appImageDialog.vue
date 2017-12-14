@@ -14,7 +14,7 @@
 
 <script>
 export default {
-	name: 'image-dialog'
+  name: 'image-dialog'
 }
 </script>
 

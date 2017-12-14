@@ -10,7 +10,7 @@
 
 <script>
 export default {
-	name: 'app-third-login'
+  name: 'app-third-login'
 }
 </script>
 

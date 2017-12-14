@@ -15,7 +15,7 @@
 import homeHeader from '@/component/homeHeader'
 import mainPanel from '@/component/mainPanel'
 export default {
-	name: 'about-main-panel',
+  name: 'about-main-panel',
   components: {
     homeHeader,
     mainPanel

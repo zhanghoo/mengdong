@@ -1,7 +1,7 @@
 <template>
-	<div class="friend-image-panel">
+	<div class="friend-video-panel">
     <friends-slot-panel>
-      <div class="image-content">
+      <div class="video-content">
         <div></div>
       </div>
     </friends-slot-panel>
@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import friendsSlotPanel from '@/component/friendsSlotPanel'
+import friendsSlotPanel from '@/components/friendsSlotPanel'
 export default {
-	name: 'friend-image-panel',
+  name: 'friend-video-panel',
   components: {
     friendsSlotPanel
   }
@@ -19,6 +19,6 @@ export default {
 </script>
 
 <style lang="scss">
-.friend-image-panel {
+.friend-video-panel {
 }
 </style>

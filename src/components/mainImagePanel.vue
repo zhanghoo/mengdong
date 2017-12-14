@@ -21,7 +21,7 @@
 
 <script>
 export default {
-	name: 'image-panel'
+  name: 'image-panel'
 }
 </script>
 

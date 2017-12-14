@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import friendsSlotPanel from '@/component/friendsSlotPanel'
+import friendsSlotPanel from '@/components/friendsSlotPanel'
 export default {
-	name: 'friend-article-panel',
+  name: 'friend-article-panel',
   components: {
     friendsSlotPanel
   }

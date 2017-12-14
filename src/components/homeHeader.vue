@@ -16,7 +16,7 @@
 
 <script>
 export default {
-	name: 'home-header'
+  name: 'home-header'
 }
 </script>
 

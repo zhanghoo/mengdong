@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import friendsArticlePanel from '@/component/friendsArticlePanel'
-import friendsImagePanel from '@/component/friendsImagePanel'
-import friendsVideoPanel from '@/component/friendsVideoPanel'
+import friendsArticlePanel from '@/components/friendsArticlePanel'
+import friendsImagePanel from '@/components/friendsImagePanel'
+import friendsVideoPanel from '@/components/friendsVideoPanel'
 
 export default {
   name: 'friends-main-panel',

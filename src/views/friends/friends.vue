@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import appHeader from '@/component/appHeader'
+import appHeader from '@/components/appHeader'
 import friendsMainPanel from '@/components/friendsMainPanel'
 import axios from 'axios'
 
@@ -16,17 +16,15 @@ export default {
   name: 'friends',
   components: {
     appHeader,
-    friendsPanel
+    friendsMainPanel
   },
-  data() {
+  data () {
     return {
       friendsList: {}
     }
   },
-  created() {
-    axios.get('mocks/data.json').then((res) => {
-      
-    })
+  created () {
+    axios.get('mocks/data.json').then((res) => {})
   }
 }
 </script>

@@ -35,14 +35,13 @@
 </template>
 
 <script>
-import mainArticlePanel from '@/component/mainArticlePanel'
-import mainImagePanel from '@/component/mainImagePanel'
-import mainVideoPanel from '@/component/mainVideoPanel'
+import mainArticlePanel from '@/components/mainArticlePanel'
+import mainImagePanel from '@/components/mainImagePanel'
+import mainVideoPanel from '@/components/mainVideoPanel'
 
 export default {
-	name: 'main-panel',
+  name: 'main-panel',
   components: {
-    appHeader,
     mainArticlePanel,
     mainImagePanel,
     mainVideoPanel
@@ -50,7 +49,7 @@ export default {
   props: {
     appList: Object
   },
-  data() {
+  data () {
     return {
       articles: [],
       images: [],

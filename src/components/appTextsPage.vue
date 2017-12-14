@@ -30,7 +30,7 @@
 
 <script>
 export default {
-	name: 'article-page',
+  name: 'article-page',
   components: {
     pageHeader
   }

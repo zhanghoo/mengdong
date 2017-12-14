@@ -8,24 +8,23 @@
 </template>
 
 <script>
-import appHeader from '@/component/appHeader'
+import appHeader from '@/components/appHeader'
 import mainPanel from '@/components/mainPanel'
 import axios from 'axios'
 
 export default {
   name: 'index',
   components: {
+    appHeader,
     mainPanel
   },
-  data() {
+  data () {
     return {
       appList: {}
     }
   },
-  created() {
-    axios.get('mocks/data.json').then((res) => {
-      
-    })
+  created () {
+    axios.get('mocks/data.json').then((res) => {})
   }
 }
 </script>

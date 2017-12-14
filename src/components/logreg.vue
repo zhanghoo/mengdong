@@ -13,7 +13,7 @@
 <script>
 import appThirdLogin from '@/component/appThirdLogin'
 export default {
-	name: 'logreg',
+  name: 'logreg',
   components: {
     appThirdLogin
   }

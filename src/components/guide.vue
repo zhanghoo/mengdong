@@ -10,7 +10,7 @@
 
 <script>
 export default {
-	name: 'guide'
+  name: 'guide'
 }
 </script>
 

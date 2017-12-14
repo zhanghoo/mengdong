@@ -16,7 +16,7 @@
 
 <script>
 export default {
-	name: 'article-panel'
+  name: 'article-panel'
 }
 </script>
 
