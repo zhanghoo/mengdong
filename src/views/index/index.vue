@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import appHead from '@/components/appHead'
+import mainPanel from '@/components/mainPanel'
 export default {
   name: 'index',
   components: {
-    appHead
+    mainPanel
   }
 }
 </script>
