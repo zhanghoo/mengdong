@@ -47,6 +47,9 @@ export default {
     imagePanel,
     videoPanel
   },
+  props: {
+    appList: Object
+  },
   data() {
     return {
       articles: [],
