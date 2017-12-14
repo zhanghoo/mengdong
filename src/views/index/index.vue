@@ -3,23 +3,29 @@
     <app-header>
       <span solt="title">窝</span>
     </app-header>
-    <main-panel :appList="appList"></main-panel>
+    <main-panel :app-list="appList"></main-panel>
   </div>
 </template>
 
 <script>
 import appHeader from '@/component/appHeader'
 import mainPanel from '@/components/mainPanel'
+import axios from 'axios'
 
 export default {
   name: 'index',
   components: {
     mainPanel
   },
-  data {
+  data() {
     return {
       appList: {}
     }
+  },
+  created() {
+    axios.get('mocks/data.json').then((res) => {
+      
+    })
   }
 }
 </script>
