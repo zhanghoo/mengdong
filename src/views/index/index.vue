@@ -5,8 +5,12 @@
 </template>
 
 <script>
+import appHead from '@/components/appHead'
 export default {
-  name: 'index'
+  name: 'index',
+  components: {
+    appHead
+  }
 }
 </script>
 
