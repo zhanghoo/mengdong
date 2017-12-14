@@ -21,7 +21,10 @@
 
 <script>
 export default {
-  name: 'image-panel'
+  name: 'image-panel',
+  props: {
+    image: Object
+  }
 }
 </script>
 

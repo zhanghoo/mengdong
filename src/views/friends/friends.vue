@@ -1,7 +1,11 @@
 <template>
   <div class="friends">
     <app-header>
-      <span solt="title">伴</span>
+      <span slot="left"></span>
+      <span slot="title">伴</span>
+      <template slot="right">
+        <span class="icon icon-search"></span>
+      </template>
     </app-header>
     <friends-main-panel :friends-list="friendsList"></friends-main-panel>
   </div>
@@ -24,7 +28,7 @@ export default {
     }
   },
   created () {
-    axios.get('mocks/data.json').then((res) => {})
+    axios.get('static/mocks/data.json').then((res) => {})
   }
 }
 </script>

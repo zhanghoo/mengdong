@@ -26,7 +26,10 @@
 
 <script>
 export default {
-  name: 'video-panel'
+  name: 'video-panel',
+  props: {
+    video: Object
+  }
 }
 </script>
 

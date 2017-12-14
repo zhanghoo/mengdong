@@ -1,12 +1,22 @@
 <template>
   <div class="home">
-    <h1>123</h1>
+    <app-header>
+      <span slot="left"></span>
+      <span slot="title">遛</span>
+      <template slot="right">
+        <span class="icon icon-set"></span>
+      </template>
+    </app-header>
   </div>
 </template>
 
 <script>
+import appHeader from '@/components/appHeader'
 export default {
-  name: 'home'
+  name: 'home',
+  components: {
+    appHeader
+  }
 }
 </script>
 

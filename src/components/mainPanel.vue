@@ -1,34 +1,40 @@
 <template>
 	<div class="main-panel">
-    <div class="nav">
-      <a href="javascript:;" class="nav-item">
+    <div class="main-nav">
+      <a href="javascript:;" class="main-nav-item active">
         <div>
-          <span class="icon"></span>
+          <span class="icon icon-article"></span>
           <p class="text">文章</p>
         </div>
       </a>
-      <a href="javascript:;" class="nav-item">
+      <a href="javascript:;" class="main-nav-item">
         <div>
-          <span class="icon"></span>
+          <span class="icon icon-image"></span>
           <p class="text">图片</p>
         </div>
       </a>
-      <a href="javascript:;" class="nav-item">
+      <a href="javascript:;" class="main-nav-item">
         <div>
-          <span class="icon"></span>
+          <span class="icon icon-video"></span>
           <p class="text">视频</p>
         </div>
       </a>
     </div>
-    <div class="content">
-      <div class="tab-item">
-        <main-article-panel v-for="article in articles" :key="article.id" :article="article"></main-article-panel>
+    <div class="main-content">
+      <div class="main-tab-item">
+        <template v-for="article in appList.articles">
+          <main-article-panel :article="article" :key="article.id"></main-article-panel>
+        </template>
       </div>
-      <div class="tab-item">
-        <main-image-panel v-for="image in images" :key="image.id" :image="image"></main-image-panel>
+      <div class="main-tab-item">
+        <template v-for="image in appList.images">
+          <main-image-panel :image="image" :key="image.id"></main-image-panel>
+        </template>
       </div>
-      <div class="tab-item">
-        <main-video-panel v-for="video in videos" :key="video.id" :video="video"></main-video-panel>
+      <div class="main-tab-item">
+        <template v-for="video in appList.videos">
+          <main-video-panel :video="video" :key="video.id"></main-video-panel>
+        </template>
       </div>
     </div>
   </div>
@@ -48,28 +54,29 @@ export default {
   },
   props: {
     appList: Object
-  },
-  data () {
-    return {
-      articles: [],
-      images: [],
-      videos: []
-    }
   }
 }
 </script>
 
 <style lang="scss">
+@import "../assets/scss/md";
 .main-panel {
-  .nav {
+  .main-nav {
     display: flex;
-    .nav-item {
+    .main-nav-item {
       flex: 1;
+      height: 88px;
+      @include centerH();
+      .icon {
+        margin-bottom: 5px;
+        width: 30px;
+        height: 30px;
+      }
     }
   }
-  .contnet {
-    .tab-item {
-      display: none;
+  .main-contnet {
+    .main-tab-item {
+
     }
   }
 }

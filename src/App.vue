@@ -1,18 +1,18 @@
 <template>
   <div class="app">
-    <div class="content">
+    <div class="app-content">
       <router-view/>
     </div>
-    <div class="nav">
-      <div class="item">
-        <router-link to="/index">
+    <div class="app-nav">
+      <div class="app-item">
+        <router-link to="/index" class="centerH">
           <div>
             <span class="icon"></span>
             <p class="text">窝</p>
           </div>
         </router-link>
       </div>
-      <div class="item">
+      <div class="app-item">
         <router-link to="/friends">
           <div>
             <span class="icon"></span>
@@ -20,12 +20,12 @@
           </div>
         </router-link>
       </div>
-      <div class="item">
+      <div class="app-item">
         <a href="javascript:;">
           <span class="add">+</span>
         </a>
       </div>
-      <div class="item">
+      <div class="app-item">
         <router-link to="/shop">
           <div>
             <span class="icon"></span>
@@ -33,7 +33,7 @@
           </div>
         </router-link>
       </div>
-      <div class="item">
+      <div class="app-item">
         <router-link to="/home">
           <div>
             <span class="icon"></span>
@@ -54,31 +54,24 @@ export default {
 <style lang="scss">
 @import "assets/scss/md";
 .app {
-  .content {
+  .app-content {
     position: relative;
   }
-  .nav {
+  .app-nav {
     position: fixed;
     display: flex;
     left: 0;
     bottom: 0;
     width: 100%;
     z-index: $zIndexNav;
-    .item {
+    background: $bgColor;
+    .app-item {
       flex: 1;
       text-align: center;
       a {
         position: relative;
-        display: flex;
+        @include centerH();
         height: 58px;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
         &.active {
           color: $mainColor;
           .icon {
