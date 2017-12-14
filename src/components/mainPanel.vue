@@ -1,6 +1,9 @@
 <template>
 	<div class="main-panel">
     <div class="nav">
+      <app-header>
+        <span solt="title">窝</span>
+      </app-header>
       <a href="javascript:;" class="nav-item">
         <div>
           <span class="icon"></span>
@@ -29,8 +32,12 @@
 </template>
 
 <script>
+@import appHeader from '@/component/appHeader'
 export default {
-	name: 'main-panel'
+	name: 'main-panel',
+  components: {
+    appHead
+  }
 }
 </script>
 
