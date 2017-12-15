@@ -4,7 +4,7 @@
       <div slot="left">左</div>
       <div slot="right"></div>
     </home-header>
-    <main-panel></main-panel>
+    <main-panel :showActive="showActiveFlag"></main-panel>
     <div class="footer">
       <a href="javascrip:;" class="btn-chat">聊天有趣的</a>
     </div>
@@ -19,6 +19,11 @@ export default {
   components: {
     homeHeader,
     mainPanel
+  },
+  data () {
+    return {
+      showActive: true
+    }
   }
 }
 </script>
