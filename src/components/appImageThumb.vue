@@ -1,17 +1,17 @@
 <template>
   <div class="image-thumb">
     <ul class="images clearfix">
-      <li class="img-item"></li>
-      <li class="img-item"></li>
-      <li class="img-item"></li>
-      <li class="img-item"></li>
+      <li class="img-item" v-for="image in images" :key="image.id"></li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'image-thumb'
+  name: 'image-thumb',
+  props: {
+    images: Array
+  }
 }
 </script>
 
