@@ -1,5 +1,13 @@
 <template>
   <div class="app">
+    <div class="app-guide">
+      <guide v-show="guideShowFlag">
+        <div slot="operation">
+          <a href="javascript:;" class="jump-guide" @click="hide">跳过</a>
+        </div>
+      </guide>
+      <logreg></logreg>
+    </div>
     <div class="app-content">
       <router-view/>
     </div>
@@ -46,14 +54,40 @@
 </template>
 
 <script>
+import guide from '@/components/guide'
+import logreg from '@/components/logreg'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    guide,
+    logreg,
+    login,
+    register
+  },
+  data () {
+    return {
+      guideShowFlag: true
+    }
+  },
+  methods: {
+    hide () {
+      this.guideShowFlag = false;
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 @import "assets/scss/md";
 .app {
+  .app-guide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: $zIndexSupTop;
+  }
   .app-content {
     position: relative;
   }
