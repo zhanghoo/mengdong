@@ -5,6 +5,7 @@
             "name": "丫丫",
             "avatar": "",
             "type": 0,
+            "unReadNum": 1,
             "messages": [
                 {
                     "id": 0,
@@ -41,6 +42,7 @@
             "name": "系统消息",
             "avatar": "",
             "type": 1,
+            "unReadNum": 2,
             "messages": [
                 {
                     "id": 0,
@@ -56,6 +58,7 @@
             "name": "阿西",
             "avatar": "",
             "type": 0,
+            "unReadNum": 0,
             "messages": [
                 {
                     "id": 0,
@@ -71,6 +74,7 @@
             "name": "妮美美",
             "avatar": "",
             "type": 0,
+            "unReadNum": 0,
             "messages": [
                 {
                     "id": 0,
@@ -86,6 +90,7 @@
             "name": "系统通知",
             "avatar": "",
             "type": 1,
+            "unReadNum": 1,
             "messages": [
                 {
                     "id": 0,
@@ -101,6 +106,7 @@
             "name": "会害怕的鱼",
             "avatar": "",
             "type": 0,
+            "unReadNum": 0,
             "messages": [
                 {
                     "id": 0,
@@ -116,6 +122,7 @@
             "name": "艾梵特",
             "avatar": "",
             "type": 0,
+            "unReadNum": 0,
             "messages": [
                 {
                     "id": 0,
@@ -131,6 +138,7 @@
             "name": "7秒记忆",
             "avatar": "",
             "type": 0,
+            "unReadNum": 0,
             "messages": [
                 {
                     "id": 0,
@@ -146,6 +154,7 @@
             "name": "婉美",
             "avatar": "",
             "type": 0,
+            "unReadNum": 0,
             "messages": [
                 {
                     "id": 0,
@@ -161,6 +170,7 @@
             "name": "没有毛毛的毛毛虫",
             "avatar": "",
             "type": 0,
+            "unReadNum": 0,
             "messages": [
                 {
                     "id": 0,
