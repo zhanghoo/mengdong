@@ -8,7 +8,7 @@
       </template>
     </app-header>
     <div class="index-box">
-      <main-panel :app-list="appList"></main-panel>
+      <main-panel :appList="appList" :showActiveFlag="showActiveFlag"></main-panel>
     </div>
     <div class="index-search-panel" v-show="showFlag">
       <div class="header">
@@ -51,7 +51,8 @@ export default {
   data () {
     return {
       appList: {},
-      showFlag: false
+      showFlag: false,
+      showActiveFlag: true
     }
   },
   created () {
