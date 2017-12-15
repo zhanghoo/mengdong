@@ -28,16 +28,18 @@
       </div>
       <div class="main-tab-item">
         <template v-for="image in appList.images">
-          <main-image-panel :image="image" :key="image.id"></main-image-panel>
+          <main-image-panel :image="image" @click="clickImage(image)" :key="image.id"></main-image-panel>
         </template>
       </div>
       <div class="main-tab-item">
         <template v-for="video in appList.videos">
-          <main-video-panel :video="video" :key="video.id"></main-video-panel>
+          <main-video-panel :video="video" @click="clickArticleVideo(video)" :key="video.id"></main-video-panel>
         </template>
       </div>
     </div>
-    <app-texts-page :article="selectedArticle" ref="article"></app-texts-page>
+    <app-texts-page :article="selectedArticle" :textsType="textsType" ref="article"></app-texts-page>
+    <app-image-dialog :image="selectedImage" ref="image"></app-image-dialog>
+    <app-video-dialog :video="selectedVideo" ref="video"></app-video-dialog>
   </div>
 </template>
 
@@ -46,6 +48,7 @@ import mainArticlePanel from '@/components/mainArticlePanel'
 import mainImagePanel from '@/components/mainImagePanel'
 import mainVideoPanel from '@/components/mainVideoPanel'
 import appTextsPage from '@/components/appTextsPage'
+import appImageDialog from '@/components/appImageDialog'
 
 export default {
   name: 'main-panel',
@@ -53,7 +56,8 @@ export default {
     mainArticlePanel,
     mainImagePanel,
     mainVideoPanel,
-    appTextsPage
+    appTextsPage,
+    appImageDialog
   },
   props: {
     appList: Object,
@@ -64,13 +68,25 @@ export default {
   },
   data: {
     return {
-      selectedArticle: {}
+      textsType: 0,
+      selectedArticle: {},
+      selectedImage: {},
+      selectedVideo: {}
     }
   },
   methods: {
     clickArticle (article) {
       this.$refs.article.show()
       this.selectedArticle = article
+      this.textsType = 0
+    },
+    clickImage (image) {
+      this.$refs.image.show()
+      this.selectedImage = image
+    },
+    clickVideo (video) {
+      this.$refs.video.show()
+      this.selectedVideo = video
     }
   }
 }
