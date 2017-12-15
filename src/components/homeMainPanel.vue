@@ -4,13 +4,14 @@
       <div slot="left"></div>
       <div slot="right">右</div>
     </home-header>
-    <main-panel :showActive="showActiveFlag"></main-panel>
+    <main-panel :appList="mineList" :showActive="showActiveFlag"></main-panel>
   </div>
 </template>
 
 <script>
-import homeHeader from '@/component/homeHeader'
-import mainPanel from '@/component/mainPanel'
+import homeHeader from '@/components/homeHeader'
+import mainPanel from '@/components/mainPanel'
+
 export default {
   name: 'home-main-panel',
   components: {
@@ -19,8 +20,14 @@ export default {
   },
   data () {
     return {
+      mineList: {},
       showActiveFlag: false
     }
+  },
+  create () {
+    axios.get('static/mocks/home/data.json').then((res) => {
+      this.mineList = res.data
+    })
   }
 }
 </script>
