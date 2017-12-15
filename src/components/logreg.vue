@@ -7,16 +7,8 @@
       <a href="javascript:;" class="btn btn-default" @click="showReg">注册</a>
     </div>
     <app-third-login></app-third-login>
-    <login v-show="loginShowFlag">
-      <div slot="operation">
-        <span class="icon icon-back" @click="hideLogin"></span>
-      </div>
-    </login>
-    <register v-show="regShowFlag">
-      <div slot="operation">
-        <span class="icon icon-back" @click="hideReg"></span>
-      </div>
-    </register>
+    <login ref="login"></login>
+    <register ref="register"></register>
   </div>
 </template>
 
@@ -31,24 +23,12 @@ export default {
     login,
     register
   },
-  data () {
-    return {
-      loginShowFlag: false,
-      regShowFlag: false
-    }
-  },
   methods: {
     showLogin () {
-      this.showLogin = true
-    },
-    hideLogin () {
-      this.showLogin = false
+      this.$refs.login.show()
     },
     showReg () {
-      this.regShowFlag = true
-    },
-    hideReg () {
-      this.regShowFlag = false
+      this.$refs.register.show()
     }
   }
 }
