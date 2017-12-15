@@ -4,10 +4,7 @@
       <div slot="left"></div>
       <div slot="right">右</div>
     </home-header>
-    <main-panel></main-panel>
-    <div class="footer">
-      <a href="javascrip:;" class="btn-chat">聊天有趣的</a>
-    </div>
+    <main-panel :showActive="showActiveFlag"></main-panel>
   </div>
 </template>
 
@@ -19,6 +16,11 @@ export default {
   components: {
     homeHeader,
     mainPanel
+  },
+  data () {
+    return {
+      showActiveFlag: false
+    }
   }
 }
 </script>
