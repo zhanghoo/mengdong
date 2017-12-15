@@ -1,5 +1,5 @@
 <template>
-	<div class="article-page">
+	<div v-show="showFlag" class="article-page">
     <div class="header"></div>
     <div class="cover"></div>
     <h1 class="title">如果我是一个人，或许会写一封诗意盎然的告别信，然后潇洒地离开</h1>
@@ -33,6 +33,19 @@ export default {
   name: 'article-page',
   components: {
     pageHeader
+  },
+  props: {
+    article: Object
+  },
+  data () {
+    return {
+      showFlag: false
+    }
+  },
+  methods: {
+    show () {
+      this.showFlag = true
+    }
   }
 }
 </script>
