@@ -8,15 +8,18 @@
         <span class="icon icon-cart"></span>
       </template>
     </app-header>
+    <shop-main-panel></shop-main-panel>
   </div>
 </template>
 
 <script>
 import appHeader from '@/components/appHeader'
+import shopMainPanel from '@/components/shopMainPanel'
 export default {
   name: 'shop',
   components: {
-    appHeader
+    appHeader,
+    shopMainPanel
   }
 }
 </script>
