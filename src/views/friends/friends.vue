@@ -8,14 +8,14 @@
       </template>
     </app-header>
     <friends-main-panel :friends-list="friendsList"></friends-main-panel>
-    <app-message-page ref="message"></app-message-page>
+    <app-message-list-page ref="message"></app-message-list-page>
   </div>
 </template>
 
 <script>
 import appHeader from '@/components/appHeader'
 import friendsMainPanel from '@/components/friendsMainPanel'
-import appMessagePage from '@/components/appMessagePage'
+import appMessageListPage from '@/components/appMessageListPage'
 import axios from 'axios'
 
 export default {
@@ -23,7 +23,7 @@ export default {
   components: {
     appHeader,
     friendsMainPanel,
-    appMessagePage
+    appMessageListPage
   },
   data () {
     return {
