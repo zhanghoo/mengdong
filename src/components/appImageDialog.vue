@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'image-dialog',
+  name: 'app-image-dialog',
   data () {
     return {
       showFlag: false
