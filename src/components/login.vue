@@ -1,10 +1,8 @@
 <template>
-	<div class="login">
+	<div v-show="showFlag" class="login">
     <div class="bg"></div>
     <div class="wrap">
-      <div slot="operation">
-        <span class="icon icon-back"></span>
-      </div>
+      <span class="icon icon-back"></span>
       <div class="input-block">
         <span class="icon icon-phone"></span>
         <input type="text" placeholder="手机号">
@@ -28,6 +26,14 @@ export default {
   name: 'login',
   components: {
     appThirdLogin
+  },
+  data () {
+    showFlag: false
+  },
+  methods: {
+    show () {
+      this.showFlag = true
+    }
   }
 }
 </script>
