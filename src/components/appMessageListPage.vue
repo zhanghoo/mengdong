@@ -9,7 +9,17 @@
     </app-header>
     <div class="content">
       <ul class="app-msg-list">
-        <li class="app-msg-item" v-for="msg in msgList" :key="msg.id" @click="showMsgPage(msg)"></li>
+        <li class="app-msg-item" v-for="msg in msgList" :key="msg.id" @click="showMsgPage(msg)">
+          <span class="icon icon-msg"></span>
+          <div class="msg-info">
+            <p class="info">
+              <span class="name">{{msg.name}}</span>
+              <span class="date">{{msg.message[0].date}}</span>
+            </p>
+            <p class="msg">{{msg.message[0].content}}</p>
+            <span class="bubble" v-show="msg.unReadNum">{{msg.unReadNum}}</span>
+          </div>
+        </li>
       </ul>
     </div>
     <app-message-page :msg="msges" :msgFrom="msgFrom" ref="messagePage"></app-message-page>
