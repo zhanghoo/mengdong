@@ -1,10 +1,8 @@
 <template>
-	<div class="register">
+	<div v-show="showFlag" class="register">
     <div class="bg"></div>
     <div class="wrap">
-      <div slot="operation">
-        <span class="icon icon-back"></span>
-      </div>
+      <span class="icon icon-back" @click="hide"></span>
       <div class="input-block">
         <span class="icon icon-phone"></span>
         <input type="text" placeholder="请输入手机号">
@@ -33,6 +31,19 @@ export default {
   name: 'register',
   components: {
     appThirdLogin
+  },
+  data () {
+    return {
+      showFlag: false
+    }
+  },
+  method: {
+    show () {
+      this.showFlag = true
+    },
+    hide () {
+      this.showFlag = false
+    }
   }
 }
 </script>
