@@ -12,7 +12,7 @@
         <li class="app-msg-item" v-for="msg in msgList" :key="msg.id" @click="showMsgPage(msg)"></li>
       </ul>
     </div>
-    <app-message-page :msg="msges" ref="messagePage"></app-message-page>
+    <app-message-page :msg="msges" :msgFrom="msgFrom" ref="messagePage"></app-message-page>
   </div>
 </template>
 
@@ -31,6 +31,7 @@ export default {
     return {
       showFlag: false,
       msgList: [],
+      msgFrom: '',
       msges: []
     }
   }
@@ -47,7 +48,8 @@ export default {
       this.showFlag = false
     },
     showMsgPage (msges) {
-      this.msges = msges
+      this.msges = msges.messages
+      this.msgFrom = msges.name
       this.$refs.messagePage.show()
     }
   }
