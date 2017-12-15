@@ -23,7 +23,7 @@
     <div class="main-content" v-show="showActive">
       <div class="main-tab-item">
         <template v-for="article in appList.articles">
-          <main-article-panel :article="article" :key="article.id"></main-article-panel>
+          <main-article-panel :article="article" @click="clickArticle(article)" :key="article.id"></main-article-panel>
         </template>
       </div>
       <div class="main-tab-item">
@@ -37,6 +37,7 @@
         </template>
       </div>
     </div>
+    <app-texts-page :article="selectedArticle" ref="article"></app-texts-page>
   </div>
 </template>
 
@@ -44,19 +45,32 @@
 import mainArticlePanel from '@/components/mainArticlePanel'
 import mainImagePanel from '@/components/mainImagePanel'
 import mainVideoPanel from '@/components/mainVideoPanel'
+import appTextsPage from '@/components/appTextsPage'
 
 export default {
   name: 'main-panel',
   components: {
     mainArticlePanel,
     mainImagePanel,
-    mainVideoPanel
+    mainVideoPanel,
+    appTextsPage
   },
   props: {
     appList: Object,
     showActive: {
       type: Boolean,
       default: true
+    }
+  },
+  data: {
+    return {
+      selectedArticle: {}
+    }
+  },
+  methods: {
+    clickArticle (article) {
+      this.$refs.article.show()
+      this.selectedArticle = article
     }
   }
 }
