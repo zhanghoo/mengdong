@@ -1,5 +1,5 @@
 <template>
-	<div class="about-main-panel">
+	<div class="app-about-page">
     <home-header>
       <div slot="left">左</div>
       <div slot="right"></div>
@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import homeHeader from '@/component/homeHeader'
-import mainPanel from '@/component/mainPanel'
+import homeHeader from '@/components/homeHeader'
+import mainPanel from '@/components/mainPanel'
 export default {
-  name: 'about-main-panel',
+  name: 'app-about-page',
   components: {
     homeHeader,
     mainPanel
@@ -24,6 +24,6 @@ export default {
 </script>
 
 <style lang="scss">
-.about-main-panel {
+.app-about-page {
 }
 </style>
