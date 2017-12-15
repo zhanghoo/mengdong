@@ -20,7 +20,7 @@
         </div>
       </a>
     </div>
-    <div class="main-content">
+    <div class="main-content" v-show="showActive">
       <div class="main-tab-item">
         <template v-for="article in appList.articles">
           <main-article-panel :article="article" :key="article.id"></main-article-panel>
@@ -53,7 +53,11 @@ export default {
     mainVideoPanel
   },
   props: {
-    appList: Object
+    appList: Object,
+    showActive: {
+      type: Boolean,
+      default: true
+    }
   }
 }
 </script>
