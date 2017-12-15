@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     show () {
-      this.$refs.message.show();
+      this.$refs.message.show()
     }
   }
 }

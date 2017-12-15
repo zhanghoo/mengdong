@@ -28,7 +28,9 @@ export default {
     appThirdLogin
   },
   data () {
-    showFlag: false
+    return {
+      showFlag: false
+    }
   },
   methods: {
     show () {

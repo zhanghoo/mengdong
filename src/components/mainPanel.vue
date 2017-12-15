@@ -49,6 +49,7 @@ import mainImagePanel from '@/components/mainImagePanel'
 import mainVideoPanel from '@/components/mainVideoPanel'
 import appTextsPage from '@/components/appTextsPage'
 import appImageDialog from '@/components/appImageDialog'
+import appVideoDialog from '@/components/appVideoDialog'
 
 export default {
   name: 'main-panel',
@@ -57,7 +58,8 @@ export default {
     mainImagePanel,
     mainVideoPanel,
     appTextsPage,
-    appImageDialog
+    appImageDialog,
+    appVideoDialog
   },
   props: {
     appList: Object,
@@ -66,7 +68,7 @@ export default {
       default: true
     }
   },
-  data: {
+  data () {
     return {
       textsType: 0,
       selectedArticle: {},

@@ -23,7 +23,7 @@ export default {
       float: left;
       padding-bottom: 100%;
       width: 45%;
-      heightL 0;
+      height: 0;
       background: #ccc;
     }
   }

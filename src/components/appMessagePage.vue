@@ -21,7 +21,9 @@ export default {
     msges: Array
   },
   data () {
-    showFlag: false
+    return {
+      showFlag: false
+    }
   },
   methods: {
     show () {

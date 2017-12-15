@@ -1,11 +1,7 @@
 <template>
   <div class="app">
     <div class="app-guide">
-      <guide v-show="guideShowFlag">
-        <div slot="operation">
-          <a href="javascript:;" class="jump-guide" @click="hide">跳过</a>
-        </div>
-      </guide>
+      <guide></guide>
       <logreg></logreg>
     </div>
     <div class="app-content">
@@ -60,19 +56,7 @@ export default {
   name: 'app',
   components: {
     guide,
-    logreg,
-    login,
-    register
-  },
-  data () {
-    return {
-      guideShowFlag: true
-    }
-  },
-  methods: {
-    hide () {
-      this.guideShowFlag = false;
-    }
+    logreg
   }
 }
 </script>

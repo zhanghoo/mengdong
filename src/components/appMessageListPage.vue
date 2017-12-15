@@ -44,7 +44,7 @@ export default {
       msgFrom: '',
       msges: []
     }
-  }
+  },
   created () {
     axios.get('static/mocks/data.json').then((res) => {
       this.msgList = res.data
@@ -67,6 +67,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../assets/scss/md";
 .app-message-list-page {
   position: fixed;
   top: 0;

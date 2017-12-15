@@ -34,9 +34,6 @@
 <script>
 export default {
   name: 'article-page',
-  components: {
-    pageHeader
-  },
   props: {
     article: Object,
     textsType: {

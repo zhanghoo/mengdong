@@ -37,7 +37,7 @@ export default {
       showFlag: false
     }
   },
-  method: {
+  methods: {
     show () {
       this.showFlag = true
     },
