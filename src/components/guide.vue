@@ -1,10 +1,10 @@
 <template>
 	<div class="guide">
-    <div class="page page1"></div>
-    <div class="page page2"></div>
-    <div class="page page3"></div>
-    <div class="page page4"></div>
-    <div class="page page5"></div>
+    <div class="guide-page page1"></div>
+    <div class="guide-page page2"></div>
+    <div class="guide-page page3"></div>
+    <div class="guide-page page4"></div>
+    <div class="guide-page page5"></div>
   </div>
 </template>
 
@@ -16,5 +16,13 @@ export default {
 
 <style lang="scss">
 .guide {
+  position: relative;
+  .guide-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>
