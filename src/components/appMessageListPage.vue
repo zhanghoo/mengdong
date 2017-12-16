@@ -19,7 +19,7 @@
         <div class="swiper-scrollbar swiper-message-scrollbar" slot="scrollbar"></div>
       </swiper>
     </div>
-    <app-message-page :msg="msges" :msgFrom="msgFrom" ref="messagePage"></app-message-page>
+    <app-message-page :msges="msges" :msgFrom="msgFrom" ref="messagePage"></app-message-page>
   </div>
 </template>
 
