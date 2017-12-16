@@ -4,10 +4,10 @@
       <span slot="left" @click="hide"></span>
       <span slot="title">消息中心</span>
       <template slot="right">
-        <span class="icon icon-search" @click="show"></span>
+        <span class="icon icon-search" @click="hide"></span>
       </template>
     </app-header>
-    <div class="content">
+    <div class="app-message-list-content">
       <ul class="app-msg-list">
         <li class="app-msg-item" v-for="msg in msgList.messageList" :key="msg.id" @click="showMsgPage(msg)">
           <span class="icon icon-msg"></span>
@@ -75,5 +75,14 @@ export default {
   width: 100%;
   height: 100%;
   z-index: $zIndexPage;
+  .app-message-list-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 48px;
+    width: 100%;
+    height: 100%;
+    background: $slideBgColor;
+  }
 }
 </style>

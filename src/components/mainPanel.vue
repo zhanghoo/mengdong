@@ -229,7 +229,7 @@ export default {
     height: 100%;
     overflow: hidden;
     z-index: 10;
-    background: #f7f7f7;
+    background: $slideBgColor;
     .main-swiper {
       height: 100%;
       .text-swiper {

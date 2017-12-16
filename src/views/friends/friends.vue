@@ -7,7 +7,7 @@
         <span class="icon icon-message" @click="show"></span>
       </template>
     </app-header>
-    <friends-main-panel :friends-list="friendsList"></friends-main-panel>
+    <friends-main-panel :actives-list="activesList"></friends-main-panel>
     <app-message-list-page ref="message"></app-message-list-page>
   </div>
 </template>
@@ -27,12 +27,12 @@ export default {
   },
   data () {
     return {
-      friendsList: {}
+      activesList: {}
     }
   },
   created () {
     axios.get('static/mocks/friend/data.json').then((res) => {
-      this.friendsList = res.data
+      this.activesList = res.data
     })
   },
   methods: {
