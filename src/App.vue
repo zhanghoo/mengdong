@@ -2,7 +2,7 @@
   <div class="app">
     <div class="app-guide">
       <guide></guide>
-      <logreg></logreg>
+      <logreg v-if="showFlag"></logreg>
     </div>
     <div class="app-content">
       <router-view/>
@@ -52,11 +52,20 @@
 <script>
 import guide from '@/components/guide'
 import logreg from '@/components/logreg'
+import { mapGetters } from 'vuex'
 export default {
   name: 'app',
   components: {
     guide,
     logreg
+  },
+  computed: {
+    ...mapGetters([
+      'loginStatus'
+    ]),
+    showFlag () {
+      return !this.loginStatus
+    }
   }
 }
 </script>

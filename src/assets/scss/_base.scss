@@ -61,3 +61,27 @@ li {
     visibility: hidden;
   }
 }
+
+.btn, .btn-default {
+  display: inline-block;
+  width: 200px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  outline: none;
+  border-radius: 38px;
+}
+.btn {
+  &.btn-main {
+    border: 1px solid $orange;
+    background: $orange;
+  }
+  &.btn-sm {
+    width: 100px;
+    height: 28px;
+    line-height: 28px;
+  }
+}

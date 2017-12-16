@@ -27,6 +27,7 @@
 
 <script>
 import circleProgressBar from '@/components/circleProgressBar'
+
 export default {
   name: 'guide',
   components: {
