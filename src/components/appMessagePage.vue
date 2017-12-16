@@ -14,8 +14,13 @@
 </template>
 
 <script>
+import appHeader from '@/components/appHeader'
+
 export default {
   name: 'app-message-page',
+  components: {
+    appHeader
+  },
   props: {
     msgFrom: String,
     msges: Array

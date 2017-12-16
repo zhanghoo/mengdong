@@ -1,8 +1,8 @@
 <template>
   <div class="app">
-    <div class="app-guide">
+    <div v-show="showAppGuideFlag" class="app-guide">
       <guide></guide>
-      <logreg v-if="showFlag"></logreg>
+      <logreg v-if="showLogregFlag"></logreg>
     </div>
     <div class="app-content">
       <router-view/>
@@ -61,9 +61,13 @@ export default {
   },
   computed: {
     ...mapGetters([
+      'guideStatus',
       'loginStatus'
     ]),
-    showFlag () {
+    showAppGuideFlag () {
+      return this.guideStatus
+    },
+    showLogregFlag () {
       return !this.loginStatus
     }
   }

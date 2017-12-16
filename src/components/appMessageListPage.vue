@@ -9,14 +9,14 @@
     </app-header>
     <div class="content">
       <ul class="app-msg-list">
-        <li class="app-msg-item" v-for="msg in msgList" :key="msg.id" @click="showMsgPage(msg)">
+        <li class="app-msg-item" v-for="msg in msgList.messageList" :key="msg.id" @click="showMsgPage(msg)">
           <span class="icon icon-msg"></span>
           <div class="msg-info">
             <p class="info">
               <span class="name">{{msg.name}}</span>
-              <span class="date">{{msg.message[0].date}}</span>
+              <span class="date">{{ msg.messages[0].date }}</span>
             </p>
-            <p class="msg">{{msg.message[0].content}}</p>
+            <p class="msg">{{ msg.messages[0].content }}</p>
             <span class="bubble" v-show="msg.unReadNum">{{msg.unReadNum}}</span>
           </div>
         </li>
@@ -40,13 +40,13 @@ export default {
   data () {
     return {
       showFlag: false,
-      msgList: [],
+      msgList: {},
       msgFrom: '',
       msges: []
     }
   },
   created () {
-    axios.get('static/mocks/data.json').then((res) => {
+    axios.get('../static/mocks/data.json').then((res) => {
       this.msgList = res.data
     })
   },

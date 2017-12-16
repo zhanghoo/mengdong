@@ -31,7 +31,7 @@ export default {
     }
   },
   created () {
-    axios.get('static/mocks/friends/data.json').then((res) => {
+    axios.get('static/mocks/friend/data.json').then((res) => {
       this.friendsList = res.data
     })
   },

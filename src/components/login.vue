@@ -22,7 +22,8 @@
 
 <script>
 import appThirdLogin from '@/components/appThirdLogin'
-import { mapActions } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
+import * as types from '@/store/mutation-types'
 
 export default {
   name: 'login',
@@ -35,6 +36,9 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      _setGuideStatus: types.SET_GUIDE_STATUS
+    }),
     ...mapActions({
       _login: 'login'
     }),
