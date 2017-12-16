@@ -9,3 +9,8 @@
   ::-moz-placeholder          {@content}
   :-ms-input-placeholder      {@content}  
 }
+@mixin text-ellipsis{
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
