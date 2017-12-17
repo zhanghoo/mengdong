@@ -4,19 +4,22 @@
       <a href="javascript:;" class="main-nav-item" @click="selectType(0)">
         <div>
           <span class="icon icon-article"></span>
-          <p class="text">文章</p>
+          <p class="num" v-show="!showActive">{{articlesNum}}</p>
+          <p class="text" :class="{ sm : !showActive }">文章</p>
         </div>
       </a>
       <a href="javascript:;" class="main-nav-item" @click="selectType(1)">
         <div>
           <span class="icon icon-image"></span>
-          <p class="text">图片</p>
+          <p class="num" v-show="!showActive">{{imagesNum}}</p>
+          <p class="text" :class="{ sm : !showActive }">图片</p>
         </div>
       </a>
       <a href="javascript:;" class="main-nav-item" @click="selectType(2)">
         <div>
           <span class="icon icon-video"></span>
-          <p class="text">视频</p>
+          <p class="num" v-show="!showActive">{{videosNum}}</p>
+          <p class="text" :class="{ sm : !showActive }">视频</p>
         </div>
       </a>
       <div class="main-slide-bar" v-show="showActive" ref="mainSlideBar"></div>
@@ -159,6 +162,15 @@ export default {
   computed: {
     mainSwiper () {
       return this.$refs.mainSwiper.swiper
+    },
+    articlesNum () {
+      return this.appList.articles ? this.appList.articles.length : 0
+    },
+    imagesNum () {
+      return this.appList.images ? this.appList.images.length : 0
+    },
+    videosNum () {
+      return this.appList.videos ? this.appList.videos.length : 0
     }
   },
   methods: {
@@ -176,7 +188,9 @@ export default {
       this.selectedVideo = video
     },
     selectType (type) {
-      this.mainSwiper.slideTo(type)
+      if (this.showActive) {
+        this.mainSwiper.slideTo(type)
+      }
     }
   }
 }
@@ -198,6 +212,17 @@ export default {
         margin-bottom: 5px;
         width: 30px;
         height: 30px;
+      }
+      .num {
+        font-size: 18px;
+        text-align: center;
+      }
+      .text {
+        &.sm {
+          font-size: 12px;
+          text-align: center;
+          color: #ccc;
+        }
       }
     }
     .main-slide-bar {

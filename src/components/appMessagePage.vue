@@ -3,7 +3,7 @@
     <app-header>
       <span slot="left" class="icon icon-back" @click="hide"></span>
       <span slot="title">{{msgFrom}}</span>
-      <template slot="right"></template>
+      <span slot="right" class="icon icon-search"></span>
     </app-header>
     <div class="app-chat-wrap">
       <swiper class="chat-swiper" :options="chatSwiperOption">

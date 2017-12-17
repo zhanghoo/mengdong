@@ -1,9 +1,9 @@
 <template>
-  <div class="app-header">
+  <div class="app-header" :class="{ main: isMain }">
     <div class="app-left">
       <slot name="left">左</slot>
     </div>
-    <div class="app-title">
+    <div class="app-title" :class="{ main: isMain }">
       <slot name="title">标题</slot>
     </div>
     <div class="app-right">
@@ -14,7 +14,13 @@
 
 <script>
 export default {
-  name: 'app-header'
+  name: 'app-header',
+  props: {
+    isMain: {
+      type: Boolean,
+      default: true
+    }
+  }
 }
 </script>
 
@@ -29,7 +35,10 @@ export default {
   width: 100%;
   height: 48px;
   line-height: 48px;
-  background: $mainColor;
+  background: transparent;
+  &.main {
+    background: $mainColor;
+  }
   color: #fff;
   z-index: $zIndexNav;
   .app-left {
@@ -40,6 +49,10 @@ export default {
     flex: 0 0 60%;
     width: 60%;
     text-align: center;
+    color: transparent;
+    &.main {
+      color: #fff;
+    }
   }
   .app-right {
     flex: 0 0 20%;
