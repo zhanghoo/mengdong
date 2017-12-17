@@ -29,7 +29,7 @@
         <swiper-slide>
           <swiper :options="swiperArticleOption" class="text-swiper">
             <swiper-slide>
-              <div v-for="article in appList.articles" @click="clickArticle(article)" :key="article.id">
+              <div v-for="article in appList.articles" @click.stop="clickArticle(article)" :key="article.id">
                 <main-article-panel :article="article"></main-article-panel>
               </div>
             </swiper-slide>
@@ -39,7 +39,7 @@
         <swiper-slide>
           <swiper :options="swiperImageOption" class="text-swiper">
             <swiper-slide>
-              <div v-for="image in appList.images" @click="clickImage(image)" :key="image.id">
+              <div v-for="image in appList.images" @click.stop="clickImage(image)" :key="image.id">
                 <main-image-panel :image="image"></main-image-panel>
               </div>
             </swiper-slide>
@@ -49,7 +49,7 @@
         <swiper-slide>
           <swiper :options="swiperVideoOption" class="text-swiper">
             <swiper-slide>
-              <div v-for="video in appList.videos" @click="clickArticleVideo(video)" :key="video.id">
+              <div v-for="video in appList.videos" @click.stop="clickVideo(video)" :key="video.id">
                 <main-video-panel :video="video"></main-video-panel>
               </div>
             </swiper-slide>
@@ -58,7 +58,7 @@
         </swiper-slide>
       </swiper>
     </div>
-    <app-texts-page v-if="showActive" :article="selectedArticle" :textsType="textsType" ref="article"></app-texts-page>
+    <app-texts-page v-if="showActive" :article="selectedArticle" :textsType.number="textsType" ref="article"></app-texts-page>
     <app-image-dialog v-if="showActive" :image="selectedImage" ref="image"></app-image-dialog>
     <app-video-dialog v-if="showActive" :video="selectedVideo" ref="video"></app-video-dialog>
   </div>
@@ -181,7 +181,6 @@ export default {
   methods: {
     clickArticle (article) {
       this.selectedArticle = article
-      console.log(this.selectedArticle)
       this.textsType = 0
       this.$refs.article.show()
     },
