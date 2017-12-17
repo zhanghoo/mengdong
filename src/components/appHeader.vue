@@ -42,21 +42,20 @@ export default {
   color: #fff;
   z-index: $zIndexNav;
   .app-left {
-    flex: 0 0 20%;
-    width: 20%;
+    width: 10%;
   }
   .app-title {
-    flex: 0 0 60%;
-    width: 60%;
+    flex: 1;
+    width: 80%;
     text-align: center;
     color: transparent;
+    @include text-ellipsis();
     &.main {
       color: #fff;
     }
   }
   .app-right {
-    flex: 0 0 20%;
-    width: 20%;
+    width: 10%;
     text-align: right;
   }
 }	
