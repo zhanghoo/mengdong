@@ -1,6 +1,6 @@
 <template>
 	<div class="main-panel">
-    <div class="main-nav">
+    <div class="main-nav" :class="pageRole">
       <a href="javascript:;" class="main-nav-item" @click="selectType(0)">
         <div>
           <span class="icon icon-article"></span>
@@ -29,9 +29,9 @@
         <swiper-slide>
           <swiper :options="swiperArticleOption" class="text-swiper">
             <swiper-slide>
-              <template v-for="article in appList.articles">
-                <main-article-panel :article="article" @click="clickArticle(article)" :key="article.id"></main-article-panel>
-              </template>
+              <div v-for="article in appList.articles" @click="clickArticle(article)" :key="article.id">
+                <main-article-panel :article="article"></main-article-panel>
+              </div>
             </swiper-slide>
             <div class="swiper-scrollbar swiper-article-scrollbar" slot="scrollbar"></div>
           </swiper>
@@ -39,9 +39,9 @@
         <swiper-slide>
           <swiper :options="swiperImageOption" class="text-swiper">
             <swiper-slide>
-              <template v-for="image in appList.images">
-                <main-image-panel :image="image" @click="clickImage(image)" :key="image.id"></main-image-panel>
-              </template>
+              <div v-for="image in appList.images" @click="clickImage(image)" :key="image.id">
+                <main-image-panel :image="image"></main-image-panel>
+              </div>
             </swiper-slide>
             <div class="swiper-scrollbar swiper-image-scrollbar" slot="scrollbar"></div>
           </swiper>
@@ -49,18 +49,18 @@
         <swiper-slide>
           <swiper :options="swiperVideoOption" class="text-swiper">
             <swiper-slide>
-              <template v-for="video in appList.videos">
-                <main-video-panel :video="video" @click="clickArticleVideo(video)" :key="video.id"></main-video-panel>
-              </template>
+              <div v-for="video in appList.videos" @click="clickArticleVideo(video)" :key="video.id">
+                <main-video-panel :video="video"></main-video-panel>
+              </div>
             </swiper-slide>
             <div class="swiper-scrollbar swiper-video-scrollbar" slot="scrollbar"></div>
           </swiper>
         </swiper-slide>
       </swiper>
     </div>
-    <app-texts-page :article="selectedArticle" :textsType="textsType" ref="article"></app-texts-page>
-    <app-image-dialog :image="selectedImage" ref="image"></app-image-dialog>
-    <app-video-dialog :video="selectedVideo" ref="video"></app-video-dialog>
+    <app-texts-page v-if="showActive" :article="selectedArticle" :textsType="textsType" ref="article"></app-texts-page>
+    <app-image-dialog v-if="showActive" :image="selectedImage" ref="image"></app-image-dialog>
+    <app-video-dialog v-if="showActive" :video="selectedVideo" ref="video"></app-video-dialog>
   </div>
 </template>
 
@@ -87,7 +87,8 @@ export default {
     showActive: {
       type: Boolean,
       default: true
-    }
+    },
+    pageRole: String
   },
   data () {
     const self = this
@@ -98,6 +99,7 @@ export default {
       selectedVideo: {},
       mainSwiperOption: {
         /* eslint-disable */
+        clickable: true,
         autoplay: false,
         roundLengths: true, // 防止文字模糊
         observer: true, // 修改swiper自己或子元素时，自动初始化swiper
@@ -113,6 +115,7 @@ export default {
         /* eslint-disable */
         direction: 'vertical',
         slidesPerView: 'auto',
+        clickable: true,
         freeMode: true,
         autoHeight: true, //高度随内容变化
         scrollbar: {
@@ -129,6 +132,7 @@ export default {
         /* eslint-disable */
         direction: 'vertical',
         slidesPerView: 'auto',
+        clickable: true,
         freeMode: true,
         autoHeight: true, //高度随内容变化
         scrollbar: {
@@ -145,6 +149,7 @@ export default {
         /* eslint-disable */
         direction: 'vertical',
         slidesPerView: 'auto',
+        clickable: true,
         freeMode: true,
         autoHeight: true, //高度随内容变化
         scrollbar: {
@@ -175,17 +180,18 @@ export default {
   },
   methods: {
     clickArticle (article) {
-      this.$refs.article.show()
       this.selectedArticle = article
+      console.log(this.selectedArticle)
       this.textsType = 0
+      this.$refs.article.show()
     },
     clickImage (image) {
-      this.$refs.image.show()
       this.selectedImage = image
+      this.$refs.image.show()
     },
     clickVideo (video) {
-      this.$refs.video.show()
       this.selectedVideo = video
+      this.$refs.video.show()
     },
     selectType (type) {
       if (this.showActive) {
@@ -204,6 +210,13 @@ export default {
     display: flex;
     z-index: 20;
     background: #fff;
+    &.index {
+      position: fixed;
+      top: 48px;
+      left: 0;
+      width: 100%;
+      height: 88px;
+    }
     .main-nav-item {
       flex: 1;
       height: 88px;

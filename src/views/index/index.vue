@@ -7,9 +7,7 @@
         <span class="icon icon-search" @click="show"></span>
       </template>
     </app-header>
-    <div class="index-box">
-      <main-panel :appList="appList" :showActiveFlag="showActiveFlag"></main-panel>
-    </div>
+    <main-panel :appList="appList" :showActive="showActiveFlag" :pageRole="pageRole"></main-panel>
     <div class="index-search-panel" v-show="showFlag">
       <div class="header">
         <span class="icon-box"><i class="icon icon-search"></i></span>
@@ -52,7 +50,8 @@ export default {
     return {
       appList: {},
       showFlag: false,
-      showActiveFlag: true
+      showActiveFlag: true,
+      pageRole: 'index'
     }
   },
   created () {
@@ -74,14 +73,6 @@ export default {
 <style lang="scss">
 @import "../../assets/scss/md";
 .index {
-	.index-box {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 48px 0 58px 0;
-    width: 100%;
-    height: 100%;
-  }
   .index-search-panel {
     position: fixed;
     top: 0;

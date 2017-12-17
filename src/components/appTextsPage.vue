@@ -1,6 +1,12 @@
 <template>
 	<div v-show="showFlag" class="article-page">
-    <div class="header"></div>
+    <app-header :isMain="false">
+      <span slot="left"></span>
+      <span slot="title">小菜菜</span>
+      <template slot="right">
+        <span class="icon icon-set" @click="hide"></span>
+      </template>
+    </app-header>
     <div class="cover"></div>
     <h1 class="title">如果我是一个人，或许会写一封诗意盎然的告别信，然后潇洒地离开</h1>
     <p class="author"><span class="name">雅一</span></p>
@@ -32,8 +38,12 @@
 </template>
 
 <script>
+import appHeader from '@/components/appHeader'
 export default {
   name: 'article-page',
+  components: {
+    appHeader
+  },
   props: {
     article: Object,
     textsType: {
@@ -49,12 +59,23 @@ export default {
   methods: {
     show () {
       this.showFlag = true
+    },
+    hide () {
+      this.showFlag = false
     }
   }
 }
 </script>
 
 <style lang="scss">
+@import "../assets/scss/md";
 .article-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $slideBgColor;
+  z-index: $zIndexPage;
 }	
 </style>
