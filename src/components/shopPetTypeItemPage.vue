@@ -15,9 +15,7 @@
         <div class="slide-bar"></div>
       </div>
       <div class="shop-pet-type-item-content">
-        <shop-pet-panel></shop-pet-panel>
-        <shop-pet-panel></shop-pet-panel>
-        <shop-pet-panel></shop-pet-panel>
+        
       </div>
     </div>
     <shop-good-page ref="shopGoodPage"></shop-good-page>
@@ -26,13 +24,11 @@
 
 <script>
 import appHeader from '@/components/appHeader'
-import shopPetPanel from '@/components/shopPetPanel'
 import shopGoodPage from '@/components/shopGoodPage'
 export default {
   name: 'shop-pet-type-item',
   components: {
     appHeader,
-    shopPetPanel,
     shopGoodPage
   },
   data () {
