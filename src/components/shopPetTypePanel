@@ -1,0 +1,36 @@
+<template>
+  <div class="shop-pet-type">
+    <div class="shop-pet-type-panel">
+      <div class="shop-pet-type-nav"></div>
+      <div class="shop-pet-type-content"></div>
+    </div>
+    <shop-pet-type-item-page ref="shopPetTypeItemPage"></shop-pet-type-item-page>
+  </div>
+</template>
+
+<script>
+import shopPetTypeItemPage from '@/components/shopPetTypeItemPage'
+export default {
+  name: 'shop-pet-type',
+  components: {
+    appHeader,
+    shopPetTypeItemPage
+  },
+  methods: {
+    showPetTypeItemPage () {
+      this.$refs.shopPetTypeItemPage.show()
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+.shop-pet-type {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 48px;
+  width: 100%;
+  height: 100%;
+}
+</style>
