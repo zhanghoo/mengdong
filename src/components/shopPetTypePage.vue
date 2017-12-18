@@ -35,6 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../assets/scss/md";
 .shop-pet-type {
   position: fixed;
   top: 0;
@@ -42,5 +43,9 @@ export default {
   width: 100%;
   height: 100%;
   z-index: 990;
+  background: $slideBgColor;
+  .app-header {
+    z-index: 1000;
+  }
 }
 </style>
