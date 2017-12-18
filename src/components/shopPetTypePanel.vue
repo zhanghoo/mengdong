@@ -13,7 +13,6 @@ import shopPetTypeItemPage from '@/components/shopPetTypeItemPage'
 export default {
   name: 'shop-pet-type',
   components: {
-    appHeader,
     shopPetTypeItemPage
   },
   methods: {

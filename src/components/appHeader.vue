@@ -42,7 +42,7 @@ export default {
   color: #fff;
   z-index: $zIndexNav;
   .app-left {
-    width: 10%;
+    width: 20%;
   }
   .app-title {
     flex: 1;
@@ -55,7 +55,7 @@ export default {
     }
   }
   .app-right {
-    width: 10%;
+    width: 20%;
     text-align: right;
   }
 }	

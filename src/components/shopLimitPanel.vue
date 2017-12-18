@@ -1,13 +1,15 @@
 <template>
   <div class="shop-limit-panel">
-    <div class="shop-limit-info" :class="[isLeft ? 'left' : 'right']">
-      <h3 class="limit-theme">西安市特惠</h3>
-      <p class="limit-title">白色经典套夹</p>
-      <p class="limit-date">剩余1小时20分钟30秒</p>
-      <p class="limit-new-price">80.00</p>
-      <p class="limit-old-price">120.00</p>
+    <div class="shop-limit-info" :class="[isLeft]">
+      <div>
+        <span class="limit-theme">限时特惠</span>
+        <p class="limit-title">{{limit.title}}</p>
+        <p class="limit-date">剩余1小时20分钟30秒</p>
+        <p class="limit-new-price">{{limit.newPrice}}</p>
+        <p class="limit-old-price">{{limit.oldPrice}}</p>
+      </div>
     </div>
-    <div class="shop-limit-img" :class="[!isLeft ? 'left' : 'right']"></div>
+    <div class="shop-limit-img" :class="[isRight]"></div>
   </div>
 </template>
 
@@ -15,14 +17,18 @@
 export default {
   name: 'shop-limit-panel',
   props: {
+    limit: Object,
     direction: {
       type: String,
       default: 'left'
     }
-  }
+  },
   computed: {
-    isLeft: {
-      return this.direction == 'left' ? true : false
+    isLeft () {
+      return this.direction === 'left' ? 'left' : 'right'
+    },
+    isRight () {
+      return this.direction === 'left' ? 'right' : 'left'
     }
   }
 }
@@ -34,20 +40,23 @@ export default {
   position: relative;
   top: 0;
   left: 0;
-  padding-top: 30%;
   width: 100%;
-  height: 0;
-  display: flex;
+  height: 120px;
+  background: #fff;
   .shop-limit-info {
-    flex: 1;
     position: absolute;
     top: 0;
     left: 0;
+    padding-right: 120px;
+    width: 100%;
     height: 100%;
     text-align: center;
+    @include centerH();
     &.right {
       left: auto;
       right: 0;
+      padding-right: 0;
+      padding-left: 120px;
     }
     .limit-theme {
       height: 15px;
@@ -57,7 +66,7 @@ export default {
       border-bottom: 2px solid $mainColor;
     }
     .limit-title {
-      margint-top: 5px;
+      margin-top: 10px;
       height: 15px;
       line-height: 15px;
       font-size: 14px;
@@ -83,12 +92,13 @@ export default {
     }
   }
   .shop-limit-img {
+  	position: absolute;
     top: 0;
     right: 0;
-    width: 45%;
+    width: 120px;
     height: 100%;
     background: #ccc;
-    &.left: {
+    &.left {
       right: auto;
       left: 0;
     }
