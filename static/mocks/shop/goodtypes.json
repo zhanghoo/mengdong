@@ -1,5 +1,5 @@
 {
-    "汪汪乖": [
+    "dog": [
         {
             "id": 0,
             "icon": "icon-clothe",
@@ -89,7 +89,7 @@
             ]
         }
     ],
-    "喵喵乖": [
+    "cat": [
         {
             "id": 0,
             "icon": "icon-clothe",
