@@ -1,5 +1,5 @@
 {
-    "dog": [
+    "dogs": [
         {
             "id": 0,
             "icon": "icon-clothe",
@@ -89,7 +89,7 @@
             ]
         }
     ],
-    "cat": [
+    "cats": [
         {
             "id": 0,
             "icon": "icon-clothe",
