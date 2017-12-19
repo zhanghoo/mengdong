@@ -5,7 +5,7 @@
       <span slot="title">品类</span>
       <span slot="right" class="icon icon-cart"></span>
     </app-header>
-    <shop-pet-type-panel></shop-pet-type-panel>
+    <shop-pet-type-panel :goods-type-list="goodsTypeList"></shop-pet-type-panel>
   </div>
 </template>
 
@@ -20,8 +20,14 @@ export default {
   },
   data () {
     return {
-      showFlag: false
+      showFlag: false,
+      goodsTypeList: {}
     }
+  },
+  created () {
+    axios.get('static/mocks/shop/shoptype.json').then((res) => {
+      this.goodsTypeList = res.data
+    })
   },
   methods: {
     show () {
