@@ -12,11 +12,13 @@
             <swiper :options="shopDogSwiperOption">
               <swiper-slide>
                 <ul class="shop-pet-type-list">
-                  <li v-for="type in goodsTypeList.dogs" :key="type.id" class="shop-pet-type-item" @click.stop="clickType(type)">
+                  <li v-for="type in goodsTypeList.dogs" :key="type.id" class="shop-pettype-item" @click.stop="clickType(type)">
                     <div class="shop-pet-type-cover"></div>
-                    <p><span class="shop-pet-type-icon" :class="type.icon"></span></p>
-                    <span class="shop-pet-type-title">{{type.title}}</span>
-                    <p class="shop-pet-type-desc">{{type.desc}}</p>
+                    <div class="shop-pet-type-intro">
+                      <p><span class="shop-pet-type-icon" :class="type.icon"></span></p>
+                      <span class="shop-pet-type-title">{{type.title}}</span>
+                      <p class="shop-pet-type-desc">{{type.desc}}</p>
+                    </div>
                   </li>
                 </ul>
               </swiper-slide>
@@ -27,11 +29,13 @@
             <swiper :options="shopCatSwiperOption">
               <swiper-slide>
                 <ul class="shop-pet-type-list">
-                  <li v-for="type in goodsTypeList.cats" :key="type.id" class="shop-pet-type-item" @click.stop="clickType(type.goodsList)">
+                  <li v-for="type in goodsTypeList.cats" :key="type.id" class="shop-pettype-item" @click.stop="clickType(type.goodsList)">
                     <div class="shop-pet-type-cover"></div>
-                    <p><span class="shop-pet-type-icon" :class="type.icon"></span></p>
-                    <span class="shop-pet-type-title">{{type.title}}</span>
-                    <p class="shop-pet-type-desc">{{type.desc}}</p>
+                    <div class="shop-pet-type-intro">
+                      <p><span class="shop-pet-type-icon" :class="type.icon"></span></p>
+                      <span class="shop-pet-type-title">{{type.title}}</span>
+                      <p class="shop-pet-type-desc">{{type.desc}}</p>
+                    </div>
                   </li>
                 </ul>
               </swiper-slide>
@@ -41,7 +45,7 @@
         </swiper>
       </div>
     </div>
-    <shop-pet-type-item-page ref="shopPetTypeItemPage" :goods-list="goodsList"></shop-pet-type-item-page>
+    <shop-pet-type-item-page :goods-list="goodsList" ref="shopPetTypeItemPage"></shop-pet-type-item-page>
   </div>
 </template>
 
@@ -68,7 +72,7 @@ export default {
         observeParents: true, // 修改swiper的父元素时，自动初始化swiper
         on: {
           slideChangeTransitionStart() {
-            self.$refs.shopPetTypeSlideBar.style.left = `${this.activeIndex * 33.3333}%`
+            self.$refs.shopPetTypeSlideBar.style.left = `${this.activeIndex * 50}%`
           }
         }
         /* eslint-enable */
@@ -111,18 +115,15 @@ export default {
   },
   computed: {
     shopPetTypeSwiper () {
-      return this.$refs.shopPetTypeSlideBar.swiper
+      return this.$refs.shopPetTypeSwiper.swiper
     }
   },
   methods: {
-    showPetTypeItemPage () {
-      this.$refs.shopPetTypeItemPage.show()
-    },
     selectType (type) {
       this.shopPetTypeSwiper.slideTo(type)
     },
     clickType (type) {
-      this.goodsList = type
+      this.goodsList = type.goodsList
       this.$refs.shopPetTypeItemPage.show()
     }
   }
@@ -138,53 +139,126 @@ export default {
   padding-top: 48px;
   width: 100%;
   height: 100%;
-  .shop-pet-type--nav {
-    position: relative;
-    display: flex;
-    width: 50%;
-    height: 48px;
-    line-height: 48px;
-    z-index: 10;
-    background: $bgColor;
-    .shop-nav-item {
-      width: 33.3333%;
-      text-align: center;
-    }
-  }
-  .shop-pet-type--slide-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 2px;
-    background: transparent;
-    transition: left .2s ease;
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 25%;
-      width: 50%;
-      height: 3px;
-      background: $orange;
-    }
-  }
-  .shop-pet-type-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 96px 0 58px 0;
+  .shop-pet-type-panel {
     width: 100%;
     height: 100%;
-    z-index: 100%;
-    background: $slideBgColor;
-    .shop-pet-type-swiper {
+    .shop-pet-type-nav {
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 48px;
+      line-height: 48px;
+      z-index: 10;
+      background: $bgColor;
+      .shop-nav-item {
+        width: 50%;
+        text-align: center;
+      }
+      .shop-pet-type-slide-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        height: 2px;
+        background: transparent;
+        transition: left .2s ease;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 25%;
+          width: 50%;
+          height: 3px;
+          background: $orange;
+        }
+      }
+    }
+    .shop-pet-type-content {
+      position: absolute;
+      padding-top: 96px;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      .shop-pet-type-slide {
+      background: $slideBgColor;
+      .shop-pet-type-swiper {
         width: 100%;
         height: 100%;
+        .shop-pet-type-slide {
+          width: 100%;
+          height: 100%;
+          .swiper-container {
+            width: 100%;
+            height: 100%;
+            .shop-pet-type-list {
+              padding: 5px;
+              width: 100%;
+              height: auto;
+              &:after{
+                content: '.';
+                display: block;
+                height: 0;
+                line-height: 0;
+                clear: both;
+                visibility: hidden;
+              }
+              .shop-pettype-item {
+                float: left;
+                padding: 5px;
+                width: 50%;
+                height: auto;
+                text-align: center;
+                .shop-pet-type-cover {
+                  padding-top: 100%;
+                  width: 100%;
+                  height: 0;
+                  background: #ccc;
+                }
+                .shop-pet-type-intro {
+                  padding: 15px 0;
+                  background: #fff;
+                  border: 1px solid #f1f1f1;
+                  .shop-pet-type-icon {
+                    display: block;
+                    margin: 0 auto 10px;
+                    width: 30px;
+                    height: 30px;
+                    background: #ccc;
+                  }
+                  .shop-pet-type-title {
+                    position: relative;
+                    display: inline-block;
+                    width: 60px;
+                    height: 16px;
+                    line-height: 16px;
+                    font-size: 14px;
+                    font-weight: 700;
+                    &:before,
+                    &:after {
+                      content: '';
+                      display: block;
+                      position: absolute;
+                      top: 6px;
+                      left: -8px;
+                      width: 6px;
+                      height: 0;
+                      border-bottom: 2px solid #333;
+                    }
+                    &:after {
+                      left: auto;
+                      right: -8px;
+                    }
+                  }
+                  .shop-pet-type-desc {
+                    font-size: 12px;
+                    color: #ccc
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

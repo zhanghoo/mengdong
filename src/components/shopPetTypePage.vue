@@ -12,6 +12,8 @@
 <script>
 import appHeader from '@/components/appHeader'
 import shopPetTypePanel from '@/components/shopPetTypePanel'
+import axios from 'axios'
+
 export default {
   name: 'shop-pet-type',
   components: {
@@ -25,7 +27,7 @@ export default {
     }
   },
   created () {
-    axios.get('static/mocks/shop/shoptype.json').then((res) => {
+    axios.get('static/mocks/shop/goodtypes.json').then((res) => {
       this.goodsTypeList = res.data
     })
   },
