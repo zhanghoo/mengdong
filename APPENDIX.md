@@ -1,3 +1,8 @@
+## 1.组件/实例的选项的顺序
+## name, components, directives, props, data, computed, watch, 生命周期钩子, methods
+## 2.元素特性的顺序
+## is, v-for, v-if, v-else, v-show, ref, key, slot, 其他特性, v-on
+
 # 附录
 ## 1.组件/实例的选项的顺序
 ## name, components, directives, props, data, computed, watch, 生命周期钩子, methods
