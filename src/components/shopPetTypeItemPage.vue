@@ -74,6 +74,21 @@ export default {
     })
   },
   methods: {
+    $_compare (order, ...propertyName) {
+      return (obj1, obj2) => {
+        let val1 = obj1[propertyName[0]]
+        let val2 = obj2[propertyName[0]]
+        if (propertyName.length >= 2) {
+          val1 = propertyName.reduce((total, current) => {
+            return obj1[total] * obj1[current]
+          })
+          val2 =  propertyName.reduce((total, current) => {
+            return obj2[total] * obj2[current]
+          })
+        }
+        return order === 'asc' ? (val1 - val2) : (val2 - val1)
+      }
+    },
     show () {
       this.showFlag = true
     },
@@ -88,9 +103,9 @@ export default {
       if (sort === 'default') {
         this.goodsListPack = this.goodsList
       } else if (sort === 'prices') {
-        this.goodsListPack = this.goodsList
+        this.goodsListPack = this.goodsList.sort(this.$_compare('asc', 'price'))
       } else if (sort === 'evaluate') {
-        this.goodsListPack = this.goodsList
+        this.goodsListPack = this.goodsList.sort(this.$_compare('asc', 'comments', 'score'))
       } else {
         this.goodsListPack = this.goodsList
       }
