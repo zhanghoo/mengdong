@@ -82,7 +82,7 @@ export default {
           val1 = propertyName.reduce((total, current) => {
             return obj1[total] * obj1[current]
           })
-          val2 =  propertyName.reduce((total, current) => {
+          val2 = propertyName.reduce((total, current) => {
             return obj2[total] * obj2[current]
           })
         }

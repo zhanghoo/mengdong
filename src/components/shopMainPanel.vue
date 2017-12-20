@@ -149,13 +149,10 @@ export default {
       this.$refs.shopGoodPage.show()
     },
     clickBest (best) {
-      console.log(best)
     },
     clickHot (hot) {
-      console.log(hot)
     },
     clickLimit (limit) {
-      console.log(limit)
     },
     selectType (type) {
       this.shopSwiper.slideTo(type)
