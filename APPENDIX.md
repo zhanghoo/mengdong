@@ -2,7 +2,8 @@
 ## name, components, directives, props, data, computed, watch, 生命周期钩子, methods
 ## 2.元素特性的顺序
 ## is, v-for, v-if, v-else, v-show, ref, key, slot, 其他特性, v-on
-
+## 3.生命周期钩子函数
+## beforeCreate, created, beforeMount, beforeUpdate, updated, activated, deactiveted, beforeDestroy, destroyed, errorCaptured
 
 # 附录
 ## 1.组件/实例的选项的顺序
@@ -63,3 +64,17 @@ v-once：只渲染元素和组件一次。随后的重新渲染，元素/组件�
 ### 10.内容 v-html v-text
 v-html：更新元素的 innerHTML 。注意：内容按普通 HTML 插入 - 不会作为 Vue 模板进行编译 。如果试图使用 v-html 组合模板，可以重新考虑是否通过使用组件来替代。
 v-text：更新元素的 textContent。如果要更新部分的 textContent ，需要使用 {{ Mustache }} 插值。
+  
+## 3.生命周期钩子函数
+## beforeCreate, created, beforeMount, beforeUpdate, updated, activated, deactiveted, beforeDestroy, destroyed, errorCaptured
+### 1.beforeCreate
+### 2.created
+### 3.beforeMount
+### 4.mounted
+### 5.beforeUpdate
+### 6.updated
+### 7.activated
+### 8.deactivated
+### 9.beforeDestroy
+### 10.destroyed
+### 11.errorCaptured
